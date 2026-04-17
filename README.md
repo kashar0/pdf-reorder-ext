@@ -1,23 +1,21 @@
 # PDF Page Reorder
 
-Ever needed to rearrange the pages of a PDF and ended up fighting with some slow online tool that wants you to create an account first? This extension lets you do it right in your browser. Load the PDF, drag the pages around, and download the result. Your file never leaves your computer.
+Rearrange the pages of any PDF file right in your browser. Load the file, drag the pages into the order you want, and download the result. Your file never leaves your computer.
 
 ## How it works
 
-When you open a PDF the extension renders thumbnail previews of every page so you can see what you are working with. From there you just drag pages to where you want them. When you are happy with the order you download the new PDF and you are done.
+When you load a PDF the extension uses PDF.js to render a thumbnail preview of every page at reduced scale. The thumbnails are displayed in a grid and made draggable using SortableJS. You drag pages to their new positions with a smooth 150ms animation and a ghost element showing where the page will land. When you are happy with the order you click Save and pdf-lib reads the original file bytes, builds a new PDF document with the pages copied in your chosen order, and triggers a download of the result as reordered.pdf.
+
+The entire process happens inside the browser. There is no server involved, no file size limit imposed by a backend, and no account required.
 
 ## How to install
 
 Clone or download this repo, open Chrome and go to chrome://extensions, enable Developer Mode, click Load unpacked, and select this folder.
 
-## Privacy
+## Open source libraries
 
-Everything runs locally in your browser using open source libraries. No file is ever uploaded to any server. You do not need an account. There are no file size limits imposed by a backend because there is no backend.
+PDF.js from Mozilla renders the page previews. It is released under the Apache 2.0 license. pdf-lib handles loading the original PDF bytes and producing the reordered output. It is released under the MIT license. SortableJS powers the drag and drop interaction. It is also MIT licensed.
 
-## Open source libraries used
+## Permissions
 
-PDF.js from Mozilla handles rendering the page previews. pdf-lib handles reading and rebuilding the PDF with the new page order. SortableJS powers the drag and drop interface. All three are open source.
-
-## Built with
-
-Manifest V3, vanilla JavaScript and CSS, PDF.js, pdf-lib, and SortableJS.
+The extension only requests the storage permission to remember user preferences. No other permissions are needed because everything runs locally.
