@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "PDF Page Reorder",
+  "description": "Preview and rearrange PDF pages. Uses PDF.js (Apache-2.0), PDF-lib (MIT), and SortableJS (MIT).",
+  "version": "1.0",
+  "permissions": ["storage"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Reorder PDF Pages"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["libs/pdf.worker.min.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 10px;
+  width: 400px;
+  overflow-x: hidden;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+#previewContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.page-thumbnail {
+  width: 100px;
+  height: auto;
+  border: 1px solid #ccc;
+  cursor: grab;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+canvas {
+  width: 100px;
+  height: auto;
+  display: block;
+}
+
+button {
+  margin-top: 10px;
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}

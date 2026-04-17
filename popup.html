@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PDF Page Reorder</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Additional styles for professional look */
+    body {
+      background: #f5f7fa;
+      color: #2c3e50;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      padding: 20px;
+      width: 420px;
+      box-sizing: border-box;
+      user-select: none;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-weight: 700;
+      font-size: 22px;
+      letter-spacing: 0.03em;
+      color: #34495e;
+      text-align: center;
+    }
+
+    #pdfUpload {
+      display: block;
+      margin: 0 auto 15px auto;
+      cursor: pointer;
+      padding: 8px 14px;
+      border-radius: 6px;
+      border: 1px solid #3498db;
+      background: #ecf0f1;
+      transition: background 0.3s, border-color 0.3s;
+      font-weight: 600;
+      font-size: 14px;
+      width: 100%;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    #pdfUpload:hover {
+      background: #d6eaf8;
+      border-color: #2980b9;
+    }
+
+    #previewContainer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 10px;
+      justify-content: center;
+      min-height: 150px;
+      border: 2px dashed #bdc3c7;
+      background: #fff;
+      padding: 12px;
+      border-radius: 8px;
+    }
+
+    .page-thumbnail {
+      width: 110px;
+      border-radius: 6px;
+      box-shadow: 0 3px 7px rgba(0, 0, 0, 0.12);
+      cursor: grab;
+      background-color: #fff;
+      border: 1px solid #dcdde1;
+      transition: box-shadow 0.2s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .page-thumbnail:hover {
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+    }
+
+    canvas {
+      width: 100px !important;
+      height: auto !important;
+      display: block;
+      border-radius: 4px;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    #saveBtn {
+      margin-top: 18px;
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      background-color: #3498db;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+    #saveBtn:disabled {
+      background-color: #95a5a6;
+      cursor: not-allowed;
+    }
+    #saveBtn:not(:disabled):hover {
+      background-color: #2980b9;
+    }
+
+    /* Credits section */
+    #credits {
+      margin-top: 24px;
+      font-size: 11px;
+      color: #7f8c8d;
+      text-align: center;
+      line-height: 1.4;
+      user-select: text;
+    }
+    #credits a {
+      color: #3498db;
+      text-decoration: none;
+    }
+    #credits a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h2>PDF Page Reorder</h2>
+  <input type="file" id="pdfUpload" accept=".pdf" title="Upload a PDF file to preview and reorder pages" />
+
+  <div id="previewContainer" class="preview" aria-label="PDF page thumbnails"></div>
+  <button id="saveBtn" disabled aria-disabled="true" title="Save reordered PDF">Save Reordered PDF</button>
+
+  <div id="credits" aria-label="Credits for used libraries">
+    Developed by KaSHaR
+  </div>
+
+  <script src="libs/pdf-lib.min.js"></script>
+  <script src="libs/pdf.min.js"></script>
+  <script src="libs/pdf.worker.min.js"></script>
+  <script src="libs/sortable.min.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
